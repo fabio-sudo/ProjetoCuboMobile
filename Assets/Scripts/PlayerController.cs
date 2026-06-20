@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         Movimentacao();
     }
+
     private void OnMove(InputValue value)
     {
         movementInput = value.Get<Vector2>();
@@ -38,7 +39,14 @@ public class PlayerController : MonoBehaviour
 
     }
     
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+           Destroy(gameObject);
+           
+        }
+    } 
 
 
 }
